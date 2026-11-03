@@ -1,4 +1,3 @@
-
 variable "aws_region" {
   description = "AWS-Region"
   type        = string
@@ -15,15 +14,18 @@ variable "environment" {
   description = "Umgebung (dev, staging, prod)"
   type        = string
   default     = "dev"
+
+  validation {
+    condition     = contains(["dev", "staging", "prod"], var.environment)
+    error_message = "environment muss dev, staging oder prod sein."
+  }
 }
 
 variable "instance_type" {
-  description = "EC2-instanztyp"
+  description = "EC2-Instanztyp"
   type        = string
   default     = "t2.micro"
 }
-
-
 
 
 
