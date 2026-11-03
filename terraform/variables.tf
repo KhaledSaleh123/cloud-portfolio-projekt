@@ -27,5 +27,11 @@ variable "instance_type" {
   default     = "t2.micro"
 }
 
+variable "key_name" {
+  description = "Name eines vorhandenen EC2-Key-Pairs"
+  type        = string
+  default     = "terraform-admin"
+}
+
 
 
